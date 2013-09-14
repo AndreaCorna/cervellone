@@ -6,6 +6,7 @@ Cervellone::Cervellone(QWidget *parent) :
     ui(new Ui::Cervellone)
 {
     ui->setupUi(this);
+
 }
 
 Cervellone::~Cervellone()
