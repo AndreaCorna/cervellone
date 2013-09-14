@@ -42,33 +42,65 @@
       <item>
        <layout class="QVBoxLayout" name="verticalLayout1_answer">
         <item>
-         <widget class="QLabel" name="answer1_label">
-          <property name="font">
-           <font>
-            <pointsize>18</pointsize>
-            <weight>75</weight>
-            <italic>true</italic>
-            <bold>true</bold>
-           </font>
+         <widget class="QFrame" name="frame_2">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
           </property>
-          <property name="text">
-           <string>Prima Risposta</string>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
           </property>
+          <widget class="QLabel" name="answer1_label">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>10</y>
+             <width>561</width>
+             <height>61</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>18</pointsize>
+             <weight>75</weight>
+             <italic>true</italic>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Prima Risposta</string>
+           </property>
+          </widget>
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="answer2_label">
-          <property name="font">
-           <font>
-            <pointsize>18</pointsize>
-            <weight>75</weight>
-            <italic>true</italic>
-            <bold>true</bold>
-           </font>
+         <widget class="QFrame" name="frame">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
           </property>
-          <property name="text">
-           <string>Seconda Risposta</string>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
           </property>
+          <widget class="QLabel" name="answer2_label">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>10</y>
+             <width>561</width>
+             <height>61</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>18</pointsize>
+             <weight>75</weight>
+             <italic>true</italic>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Seconda Risposta</string>
+           </property>
+          </widget>
          </widget>
         </item>
        </layout>
@@ -92,33 +124,65 @@
       <item>
        <layout class="QVBoxLayout" name="verticalLayout2_answer">
         <item>
-         <widget class="QLabel" name="answer3_label">
-          <property name="font">
-           <font>
-            <pointsize>18</pointsize>
-            <weight>75</weight>
-            <italic>true</italic>
-            <bold>true</bold>
-           </font>
+         <widget class="QFrame" name="frame_3">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
           </property>
-          <property name="text">
-           <string>Terza Risposta</string>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
           </property>
+          <widget class="QLabel" name="answer3_label">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>10</y>
+             <width>561</width>
+             <height>61</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>18</pointsize>
+             <weight>75</weight>
+             <italic>true</italic>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Terza Risposta</string>
+           </property>
+          </widget>
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="answer4_label">
-          <property name="font">
-           <font>
-            <pointsize>18</pointsize>
-            <weight>75</weight>
-            <italic>true</italic>
-            <bold>true</bold>
-           </font>
+         <widget class="QFrame" name="frame_4">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
           </property>
-          <property name="text">
-           <string>Quarta Risposta</string>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
           </property>
+          <widget class="QLabel" name="answer4_label">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>10</y>
+             <width>561</width>
+             <height>61</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>18</pointsize>
+             <weight>75</weight>
+             <italic>true</italic>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Quarta Risposta</string>
+           </property>
+          </widget>
          </widget>
         </item>
        </layout>
@@ -190,6 +254,16 @@
       </widget>
      </widget>
     </widget>
+    <widget class="Phonon::VideoPlayer" name="videoPlayer">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>59</y>
+       <width>811</width>
+       <height>381</height>
+      </rect>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -213,6 +287,13 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>Phonon::VideoPlayer</class>
+   <extends>QWidget</extends>
+   <header location="global">phonon/videoplayer.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
