@@ -326,7 +326,7 @@
          <string>Stop</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="restart_button">
         <property name="text">
          <string>Restart</string>
         </property>
@@ -335,15 +335,31 @@
       </widget>
      </widget>
     </widget>
-    <widget class="Phonon::VideoPlayer" name="videoPlayer">
+    <widget class="QFrame" name="frame_8">
      <property name="geometry">
       <rect>
-       <x>120</x>
-       <y>59</y>
-       <width>811</width>
-       <height>381</height>
+       <x>10</x>
+       <y>10</y>
+       <width>1181</width>
+       <height>481</height>
       </rect>
      </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="Phonon::VideoPlayer" name="videoPlayer">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>50</y>
+        <width>1141</width>
+        <height>401</height>
+       </rect>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>

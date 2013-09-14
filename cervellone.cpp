@@ -8,7 +8,7 @@ Cervellone::Cervellone(QWidget *parent) :
 {
     ui->setupUi(this);
 
-
+    setup_controllers();
    /* QUrl url;
     url.setUrl("/home/andrea/prova.mp3");
     ui->videoPlayer->show();
@@ -16,9 +16,9 @@ Cervellone::Cervellone(QWidget *parent) :
     ui->videoPlayer->play(url);
 
 */
-
-   load_video("/home/andrea/Scaricati/prova.mp4");
-   start_video();
+    video_name = new QString("/home/andrea/Scaricati/prova.mp4");
+    load_video();
+    start_video();
 }
 
 Cervellone::~Cervellone()
@@ -26,10 +26,30 @@ Cervellone::~Cervellone()
     delete ui;
 }
 
-void Cervellone::load_video(QString path){
-    video_path.setUrl(path);
+void Cervellone::setup_controllers(){
+    ui->stop_button->setEnabled(false);
+    ui->play_button->setEnabled(false);
+    ui->restart_button->setEnabled(false);
+    ui->seekSlider->setEnabled(false);
+}
+
+void Cervellone::load_video(){
+
+    //enable control buttons
+    ui->stop_button->setEnabled(true);
+    ui->play_button->setEnabled(true);
+    ui->restart_button->setEnabled(true);
+    ui->seekSlider->setEnabled(true);
+
+    //load video
+    video_path.setUrl(*video_name);
     ui->videoPlayer->show();
     ui->videoPlayer->load(video_path);
+    //load slider control
+    Phonon::MediaObject *file = ui->videoPlayer->mediaObject();
+    ui->seekSlider->setMediaObject(file);
+    ui->seekSlider->show();
+
 }
 
 void Cervellone::start_video(){

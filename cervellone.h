@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QUrl>
+#include <QString>
 
 namespace Ui {
 class Cervellone;
@@ -21,10 +22,12 @@ public slots:
     void stop_video();
     
 private:
-    void load_video(QString path);
+    void setup_controllers();
+    void load_video();
     void load_question();
     Ui::Cervellone *ui;
     QUrl video_path;
+    QString *video_name;
 };
 
 #endif // CERVELLONE_H
