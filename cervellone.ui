@@ -209,9 +209,9 @@
      <property name="geometry">
       <rect>
        <x>9</x>
-       <y>499</y>
+       <y>489</y>
        <width>1181</width>
-       <height>51</height>
+       <height>61</height>
       </rect>
      </property>
      <property name="frameShape">
@@ -220,37 +220,118 @@
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <widget class="QSplitter" name="splitter">
+     <widget class="QFrame" name="frame_5">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>9</x>
         <y>10</y>
-        <width>1161</width>
-        <height>31</height>
+        <width>241</width>
+        <height>41</height>
        </rect>
       </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
       </property>
-      <widget class="QPushButton" name="answer_button">
-       <property name="text">
-        <string>Answer</string>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QSplitter" name="splitter">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>221</width>
+         <height>24</height>
+        </rect>
        </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <widget class="QPushButton" name="answer_button">
+        <property name="text">
+         <string>Answer</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="next_button">
+        <property name="text">
+         <string>Next</string>
+        </property>
+       </widget>
       </widget>
-      <widget class="QPushButton" name="next_button">
-       <property name="text">
-        <string>Next</string>
+     </widget>
+     <widget class="QFrame" name="frame_6">
+      <property name="geometry">
+       <rect>
+        <x>249</x>
+        <y>10</y>
+        <width>181</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QSplitter" name="splitter_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>161</width>
+         <height>23</height>
+        </rect>
        </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <widget class="QLCDNumber" name="lcdNumber"/>
       </widget>
-      <widget class="QPushButton" name="play_button">
-       <property name="text">
-        <string>Play</string>
+     </widget>
+     <widget class="QFrame" name="frame_7">
+      <property name="geometry">
+       <rect>
+        <x>429</x>
+        <y>10</y>
+        <width>741</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QSplitter" name="splitter_3">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>721</width>
+         <height>24</height>
+        </rect>
        </property>
-      </widget>
-      <widget class="QPushButton" name="stop_button">
-       <property name="text">
-        <string>Stop</string>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
        </property>
+       <widget class="QPushButton" name="play_button">
+        <property name="text">
+         <string>Play</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="stop_button">
+        <property name="text">
+         <string>Stop</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton">
+        <property name="text">
+         <string>Restart</string>
+        </property>
+       </widget>
+       <widget class="Phonon::SeekSlider" name="seekSlider"/>
       </widget>
      </widget>
     </widget>
@@ -293,7 +374,49 @@
    <extends>QWidget</extends>
    <header location="global">phonon/videoplayer.h</header>
   </customwidget>
+  <customwidget>
+   <class>Phonon::SeekSlider</class>
+   <extends>QWidget</extends>
+   <header location="global">phonon/seekslider.h</header>
+  </customwidget>
  </customwidgets>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>play_button</sender>
+   <signal>clicked()</signal>
+   <receiver>Cervellone</receiver>
+   <slot>start_video()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>705</x>
+     <y>556</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>337</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>stop_button</sender>
+   <signal>clicked()</signal>
+   <receiver>Cervellone</receiver>
+   <slot>stop_video()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1051</x>
+     <y>547</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1204</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>start_video()</slot>
+  <slot>stop_video()</slot>
+ </slots>
 </ui>
