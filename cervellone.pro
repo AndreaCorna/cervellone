@@ -13,8 +13,10 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        cervellone.cpp
+        cervellone.cpp \
+    database_controller.cpp
 
-HEADERS  += cervellone.h
+HEADERS  += cervellone.h \
+    database_controller.h
 
 FORMS    += cervellone.ui
