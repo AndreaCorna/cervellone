@@ -11,6 +11,7 @@ class database_controller
 {
 public:
     database_controller();
+    question* get_question();
 
 private:
     bool openDB();

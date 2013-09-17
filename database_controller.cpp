@@ -38,3 +38,7 @@ void database_controller::ask_db(){
         qDebug()<<query.value(query.record().indexOf("Tipo")).toString();
     }
 }
+
+question* database_controller::get_question(){
+
+}
