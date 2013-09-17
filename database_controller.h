@@ -14,6 +14,8 @@ public:
 
 private:
     bool openDB();
+    void ask_db();
+
     QSqlDatabase db;
     QVector<question*> questions;
 };

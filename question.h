@@ -10,14 +10,16 @@
 class question
 {
 public:
-    question();
+    question(QString text, QString correct, QString type, QVector<QString> answers);
     QString get_type();
-    QVector<QString*> get_answers();
+    QVector<QString> get_answers();
     QString get_text();
+    QString get_correct();
+
 
 private:
     QString text;
-    QVector<QString*> answers;
+    QVector<QString> answers;
     QString correct_answer;
     QString type;
 };
