@@ -7,7 +7,7 @@ Cervellone::Cervellone(QWidget *parent) :
     ui(new Ui::Cervellone)
 {
     ui->setupUi(this);
-
+    setup_database();
     setup_controllers();
    /* QUrl url;
     url.setUrl("/home/andrea/prova.mp3");
@@ -24,6 +24,11 @@ Cervellone::Cervellone(QWidget *parent) :
 Cervellone::~Cervellone()
 {
     delete ui;
+}
+
+
+void Cervellone::setup_database(){
+    db = new database_controller();
 }
 
 void Cervellone::setup_controllers(){

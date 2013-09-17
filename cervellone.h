@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QUrl>
 #include <QString>
+#include "database_controller.h"
 
 namespace Ui {
 class Cervellone;
@@ -23,11 +24,13 @@ public slots:
     
 private:
     void setup_controllers();
+    void setup_database();
     void load_video();
     void load_question();
     Ui::Cervellone *ui;
     QUrl video_path;
     QString *video_name;
+    database_controller* db;
 };
 
 #endif // CERVELLONE_H
