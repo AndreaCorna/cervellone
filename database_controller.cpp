@@ -53,6 +53,10 @@ question* database_controller::next_question(){
     }
 }
 
+question* database_controller::get_current_question(){
+    return questions.value(curr_question);
+}
+
 question* database_controller::prev_question(){
     if(curr_question-1<0){
         return NULL;

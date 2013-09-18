@@ -66,10 +66,8 @@ void Cervellone::next_question(){
     }
     else
     {
-        ui->answer1_label->setText(curr_quest->get_answers().at(0));
-        ui->answer2_label->setText(curr_quest->get_answers().at(1));
-        ui->answer3_label->setText(curr_quest->get_answers().at(2));
-        ui->answer4_label->setText(curr_quest->get_answers().at(3));
+        show_question(curr_quest);
+
     }
 }
 void Cervellone::prev_question(){
@@ -81,11 +79,27 @@ void Cervellone::prev_question(){
     }
     else
     {
-        ui->answer1_label->setText(curr_quest->get_answers().at(0));
-        ui->answer2_label->setText(curr_quest->get_answers().at(1));
-        ui->answer3_label->setText(curr_quest->get_answers().at(2));
-        ui->answer4_label->setText(curr_quest->get_answers().at(3));
+        show_question(curr_quest);
     }
+}
+
+void Cervellone::show_question(question *curr_quest){
+    ui->answer1_label->setText(curr_quest->get_answers().at(0));
+    ui->answer2_label->setText(curr_quest->get_answers().at(1));
+    ui->answer3_label->setText(curr_quest->get_answers().at(2));
+    ui->answer4_label->setText(curr_quest->get_answers().at(3));
+}
+
+void Cervellone::show_answer(){
+    question *curr_quest=db->get_current_question();
+    QMessageBox msgBox;
+    if (curr_quest==NULL){
+        msgBox.setText("Nessuna domanda selezionata");
+    }
+    else{
+        msgBox.setText("La risposta esatta e' la "+curr_quest->get_correct());
+    }
+    msgBox.exec();
 }
 
 void Cervellone::start_video(){

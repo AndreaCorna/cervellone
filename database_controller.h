@@ -13,6 +13,7 @@ public:
     database_controller();
     question* next_question();
     question* prev_question();
+    question* get_current_question();
 
 
 private:
