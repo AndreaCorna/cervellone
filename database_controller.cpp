@@ -1,10 +1,14 @@
-#include "database_controller.h"
+﻿#include "database_controller.h"
 
 database_controller::database_controller()
 {
-
-    qDebug()<<openDB();
-    ask_db();
+    curr_question = -1;
+    if(!openDB()){
+        qDebug()<<"Database open error";
+    }
+    else{
+        load_db();
+    }
 }
 
 bool database_controller::openDB(){
@@ -13,7 +17,7 @@ bool database_controller::openDB(){
     return db.open();
 }
 
-void database_controller::ask_db(){
+void database_controller::load_db(){
 
     QSqlQuery query(db);
     qDebug()<<query.exec("select * from cervellone");
@@ -39,6 +43,24 @@ void database_controller::ask_db(){
     }
 }
 
-question* database_controller::get_question(){
-
+question* database_controller::next_question(){
+    if(curr_question+1>questions.size()-1){
+        return NULL;
+    }
+    else{
+        curr_question++;
+        return questions.value(curr_question);
+    }
 }
+
+question* database_controller::prev_question(){
+    if(curr_question-1<0){
+        return NULL;
+    }
+    else{
+        curr_question--;
+        return questions.value(curr_question);
+    }
+}
+
+

@@ -1,5 +1,6 @@
 #include "cervellone.h"
 #include "ui_cervellone.h"
+#include "QMessageBox"
 
 
 Cervellone::Cervellone(QWidget *parent) :
@@ -17,8 +18,8 @@ Cervellone::Cervellone(QWidget *parent) :
 
 */
     video_name = new QString("/home/andrea/Scaricati/prova.mp4");
-    load_video();
-    start_video();
+   // load_video();
+  //  start_video();
 }
 
 Cervellone::~Cervellone()
@@ -55,6 +56,36 @@ void Cervellone::load_video(){
     ui->seekSlider->setMediaObject(file);
     ui->seekSlider->show();
 
+}
+void Cervellone::next_question(){
+    question *curr_quest = db->next_question();
+    if(curr_quest==NULL){
+        QMessageBox msgBox;
+        msgBox.setText("Non esiste una domanda succesiva");
+        msgBox.exec();
+    }
+    else
+    {
+        ui->answer1_label->setText(curr_quest->get_answers().at(0));
+        ui->answer2_label->setText(curr_quest->get_answers().at(1));
+        ui->answer3_label->setText(curr_quest->get_answers().at(2));
+        ui->answer4_label->setText(curr_quest->get_answers().at(3));
+    }
+}
+void Cervellone::prev_question(){
+    question *curr_quest = db->prev_question();
+    if(curr_quest==NULL){
+        QMessageBox msgBox;
+        msgBox.setText("Non esiste una domanda precedente");
+        msgBox.exec();
+    }
+    else
+    {
+        ui->answer1_label->setText(curr_quest->get_answers().at(0));
+        ui->answer2_label->setText(curr_quest->get_answers().at(1));
+        ui->answer3_label->setText(curr_quest->get_answers().at(2));
+        ui->answer4_label->setText(curr_quest->get_answers().at(3));
+    }
 }
 
 void Cervellone::start_video(){

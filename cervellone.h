@@ -21,8 +21,11 @@ public:
 public slots:
     void start_video();
     void stop_video();
+    void next_question();
+    void prev_question();
     
 private:
+    void show_question();
     void setup_controllers();
     void setup_database();
     void load_video();

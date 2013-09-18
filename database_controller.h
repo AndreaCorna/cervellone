@@ -11,12 +11,15 @@ class database_controller
 {
 public:
     database_controller();
-    question* get_question();
+    question* next_question();
+    question* prev_question();
+
 
 private:
     bool openDB();
-    void ask_db();
-
+    void load_db();
+    
+    int curr_question;
     QSqlDatabase db;
     QVector<question*> questions;
 };

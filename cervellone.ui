@@ -235,28 +235,31 @@
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QSplitter" name="splitter">
+      <widget class="QPushButton" name="answer_button">
        <property name="geometry">
         <rect>
          <x>10</x>
          <y>10</y>
-         <width>221</width>
-         <height>24</height>
+         <width>80</width>
+         <height>22</height>
         </rect>
        </property>
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
+       <property name="text">
+        <string>Answer</string>
        </property>
-       <widget class="QPushButton" name="answer_button">
-        <property name="text">
-         <string>Answer</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="next_button">
-        <property name="text">
-         <string>Next</string>
-        </property>
-       </widget>
+      </widget>
+      <widget class="QPushButton" name="next_button">
+       <property name="geometry">
+        <rect>
+         <x>123</x>
+         <y>10</y>
+         <width>80</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Next</string>
+       </property>
       </widget>
      </widget>
      <widget class="QFrame" name="frame_6">
@@ -331,7 +334,7 @@
          <string>Restart</string>
         </property>
        </widget>
-       <widget class="Phonon::SeekSlider" name="seekSlider"/>
+       <widget class="Phonon::SeekSlider" name="seekSlider" native="true"/>
       </widget>
      </widget>
     </widget>
@@ -350,7 +353,7 @@
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <widget class="Phonon::VideoPlayer" name="videoPlayer">
+     <widget class="Phonon::VideoPlayer" name="videoPlayer" native="true">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -369,7 +372,7 @@
      <x>0</x>
      <y>0</y>
      <width>1205</width>
-     <height>21</height>
+     <height>19</height>
     </rect>
    </property>
   </widget>
@@ -405,8 +408,8 @@
    <slot>start_video()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>705</x>
-     <y>556</y>
+     <x>614</x>
+     <y>568</y>
     </hint>
     <hint type="destinationlabel">
      <x>-1</x>
@@ -421,8 +424,8 @@
    <slot>stop_video()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1051</x>
-     <y>547</y>
+     <x>785</x>
+     <y>568</y>
     </hint>
     <hint type="destinationlabel">
      <x>1204</x>
@@ -430,9 +433,26 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>next_button</sender>
+   <signal>clicked()</signal>
+   <receiver>Cervellone</receiver>
+   <slot>next_question()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>195</x>
+     <y>552</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-16</x>
+     <y>588</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>start_video()</slot>
   <slot>stop_video()</slot>
+  <slot>next_question()</slot>
  </slots>
 </ui>
