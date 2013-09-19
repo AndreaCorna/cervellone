@@ -67,7 +67,7 @@
             </font>
            </property>
            <property name="text">
-            <string>Prima Risposta</string>
+            <string/>
            </property>
           </widget>
          </widget>
@@ -98,7 +98,7 @@
             </font>
            </property>
            <property name="text">
-            <string>Seconda Risposta</string>
+            <string/>
            </property>
           </widget>
          </widget>
@@ -149,7 +149,7 @@
             </font>
            </property>
            <property name="text">
-            <string>Terza Risposta</string>
+            <string/>
            </property>
           </widget>
          </widget>
@@ -180,7 +180,7 @@
             </font>
            </property>
            <property name="text">
-            <string>Quarta Risposta</string>
+            <string/>
            </property>
           </widget>
          </widget>
@@ -502,22 +502,6 @@
    </hints>
   </connection>
   <connection>
-   <sender>C</sender>
-   <signal>clicked()</signal>
-   <receiver>Cervellone</receiver>
-   <slot>verify_answer()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>783</x>
-     <y>624</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1201</x>
-     <y>474</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>B</sender>
    <signal>clicked()</signal>
    <receiver>Cervellone</receiver>
@@ -546,6 +530,22 @@
     <hint type="destinationlabel">
      <x>1206</x>
      <y>656</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>C</sender>
+   <signal>clicked()</signal>
+   <receiver>Cervellone</receiver>
+   <slot>verify_answer()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>783</x>
+     <y>624</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1201</x>
+     <y>474</y>
     </hint>
    </hints>
   </connection>
