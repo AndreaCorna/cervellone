@@ -87,6 +87,11 @@ void Cervellone::prev_question(){
     }
 }
 
+void Cervellone::verify_answer(){
+    QString answer = ui->comboBox->currentText();
+    QString correct = db->get_current_question()->get_correct();
+}
+
 void Cervellone::show_question(question *curr_quest){
     ui->answer1_label->setText(curr_quest->get_answers().at(0));
     ui->answer2_label->setText(curr_quest->get_answers().at(1));

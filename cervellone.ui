@@ -235,44 +235,28 @@
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QSplitter" name="splitter">
        <property name="geometry">
         <rect>
-         <x>160</x>
+         <x>10</x>
          <y>10</y>
          <width>401</width>
          <height>24</height>
         </rect>
        </property>
-       <property name="text">
-        <string>Answer</string>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
        </property>
-      </widget>
-      <widget class="QPushButton" name="answer_button">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>10</y>
-         <width>80</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Prev</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="next_button">
-       <property name="geometry">
-        <rect>
-         <x>80</x>
-         <y>10</y>
-         <width>80</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Next</string>
-       </property>
+       <widget class="QPushButton" name="prev_button">
+        <property name="text">
+         <string>Prev</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="next_button">
+        <property name="text">
+         <string>Next</string>
+        </property>
+       </widget>
        <widget class="QComboBox" name="comboBox">
         <item>
          <property name="text">
@@ -298,11 +282,6 @@
        <widget class="QPushButton" name="answer_button">
         <property name="text">
          <string>Answer</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="next_button">
-        <property name="text">
-         <string>Next</string>
         </property>
        </widget>
       </widget>
@@ -349,7 +328,7 @@
          <string>Restart</string>
         </property>
        </widget>
-       <widget class="Phonon::SeekSlider" name="seekSlider" native="true"/>
+       <widget class="Phonon::SeekSlider" name="seekSlider"/>
       </widget>
      </widget>
     </widget>
@@ -368,7 +347,7 @@
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <widget class="Phonon::VideoPlayer" name="videoPlayer" native="true">
+     <widget class="Phonon::VideoPlayer" name="videoPlayer">
       <property name="geometry">
        <rect>
         <x>50</x>
@@ -416,7 +395,7 @@
      <x>0</x>
      <y>0</y>
      <width>1205</width>
-     <height>19</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
@@ -478,23 +457,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>next_button</sender>
-   <signal>clicked()</signal>
-   <receiver>Cervellone</receiver>
-   <slot>next_question()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>153</x>
-     <y>553</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>-16</x>
-     <y>588</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>answer_button</sender>
+   <sender>prev_button</sender>
    <signal>clicked()</signal>
    <receiver>Cervellone</receiver>
    <slot>prev_question()</slot>
@@ -510,18 +473,18 @@
    </hints>
   </connection>
   <connection>
-   <sender>pushButton</sender>
+   <sender>next_button</sender>
    <signal>clicked()</signal>
    <receiver>Cervellone</receiver>
-   <slot>show_answer()</slot>
+   <slot>next_question()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>228</x>
-     <y>560</y>
+     <x>182</x>
+     <y>548</y>
     </hint>
     <hint type="destinationlabel">
-     <x>-11</x>
-     <y>637</y>
+     <x>602</x>
+     <y>399</y>
     </hint>
    </hints>
   </connection>
