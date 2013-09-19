@@ -24,6 +24,7 @@ public slots:
     void next_question();
     void prev_question();
     void show_answer();
+    void verify_answer();
     
 private:
     void show_question(question *curr_quest);
