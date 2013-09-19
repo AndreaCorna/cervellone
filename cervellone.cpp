@@ -88,6 +88,21 @@ void Cervellone::prev_question(){
 }
 
 void Cervellone::show_question(question *curr_quest){
+    if (curr_quest->get_type()=="t"){
+        qDebug()<<curr_quest->get_text();
+        ui->label_text->setText(curr_quest->get_text());
+        ui->label_text->setVisible(true);
+        ui->label_video->setVisible(false);
+
+    }
+    else{
+        ui->label_video->setText(curr_quest->get_text());
+        ui->label_video->setVisible(true);
+        ui->label_text->setVisible(false);
+
+        qDebug()<<curr_quest->get_text();
+
+    }
     ui->answer1_label->setText(curr_quest->get_answers().at(0));
     ui->answer2_label->setText(curr_quest->get_answers().at(1));
     ui->answer3_label->setText(curr_quest->get_answers().at(2));
