@@ -240,13 +240,8 @@
         <rect>
          <x>160</x>
          <y>10</y>
-<<<<<<< HEAD
-         <width>80</width>
-         <height>22</height>
-=======
          <width>401</width>
          <height>24</height>
->>>>>>> 15e5df6ffd29860f121272018e1e5d571b31d692
         </rect>
        </property>
        <property name="text">
@@ -278,8 +273,6 @@
        <property name="text">
         <string>Next</string>
        </property>
-<<<<<<< HEAD
-=======
        <widget class="QComboBox" name="comboBox">
         <item>
          <property name="text">
@@ -312,7 +305,6 @@
          <string>Next</string>
         </property>
        </widget>
->>>>>>> 15e5df6ffd29860f121272018e1e5d571b31d692
       </widget>
      </widget>
      <widget class="QFrame" name="frame_7">
