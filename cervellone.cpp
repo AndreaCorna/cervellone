@@ -101,7 +101,7 @@ void Cervellone::verify_answer(){
 void Cervellone::show_question(question *curr_quest){
     if (curr_quest->get_type()=="t"){
         qDebug()<<curr_quest->get_text();
-        ui->label_text->setText(curr_quest->get_text());
+        ui->label_text->setText(QString("<p style=\" font-family: SansSerif; font-size: 0pt;margin-left: 20px; \">%1</p>").arg(curr_quest->get_text()));
         ui->label_text->setVisible(true);
         ui->label_video->setVisible(false);
 
