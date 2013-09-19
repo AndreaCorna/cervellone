@@ -39,7 +39,7 @@ Thumbs.db
 
 # Add by me #
 *.user
-
+*.autosave
 *.origin
 *.orig
 *~

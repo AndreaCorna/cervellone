@@ -37,6 +37,10 @@ void Cervellone::setup_controllers(){
     ui->play_button->setEnabled(false);
     ui->restart_button->setEnabled(false);
     ui->seekSlider->setEnabled(false);
+    ui->videoPlayer->setVisible(false);
+    ui->label_text->setVisible(false);
+    ui->label_video->setVisible(false);
+
 }
 
 void Cervellone::load_video(){

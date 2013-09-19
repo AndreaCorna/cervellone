@@ -225,7 +225,7 @@
        <rect>
         <x>9</x>
         <y>10</y>
-        <width>241</width>
+        <width>421</width>
         <height>41</height>
        </rect>
       </property>
@@ -240,8 +240,13 @@
         <rect>
          <x>160</x>
          <y>10</y>
+<<<<<<< HEAD
          <width>80</width>
          <height>22</height>
+=======
+         <width>401</width>
+         <height>24</height>
+>>>>>>> 15e5df6ffd29860f121272018e1e5d571b31d692
         </rect>
        </property>
        <property name="text">
@@ -273,36 +278,41 @@
        <property name="text">
         <string>Next</string>
        </property>
-      </widget>
-     </widget>
-     <widget class="QFrame" name="frame_6">
-      <property name="geometry">
-       <rect>
-        <x>249</x>
-        <y>10</y>
-        <width>181</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <widget class="QSplitter" name="splitter_2">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>10</y>
-         <width>161</width>
-         <height>23</height>
-        </rect>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <widget class="QLCDNumber" name="lcdNumber"/>
+<<<<<<< HEAD
+=======
+       <widget class="QComboBox" name="comboBox">
+        <item>
+         <property name="text">
+          <string>A</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>B</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>C</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>D</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QPushButton" name="answer_button">
+        <property name="text">
+         <string>Answer</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="next_button">
+        <property name="text">
+         <string>Next</string>
+        </property>
+       </widget>
+>>>>>>> 15e5df6ffd29860f121272018e1e5d571b31d692
       </widget>
      </widget>
      <widget class="QFrame" name="frame_7">
@@ -369,13 +379,42 @@
      <widget class="Phonon::VideoPlayer" name="videoPlayer" native="true">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>50</y>
-        <width>1141</width>
-        <height>401</height>
+        <x>50</x>
+        <y>100</y>
+        <width>1081</width>
+        <height>361</height>
        </rect>
       </property>
      </widget>
+     <widget class="QLabel" name="label_text">
+      <property name="geometry">
+       <rect>
+        <x>22</x>
+        <y>24</y>
+        <width>1141</width>
+        <height>431</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>label text</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_video">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>10</y>
+        <width>1141</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>label video</string>
+      </property>
+     </widget>
+     <zorder>label_text</zorder>
+     <zorder>videoPlayer</zorder>
+     <zorder>label_video</zorder>
     </widget>
    </widget>
   </widget>
