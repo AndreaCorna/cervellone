@@ -90,6 +90,12 @@ void Cervellone::prev_question(){
 void Cervellone::verify_answer(){
     QString answer = ui->comboBox->currentText();
     QString correct = db->get_current_question()->get_correct();
+    if(answer.compare(correct) == 0){
+        QMessageBox::information(NULL,"Bravo","Bravo hai risposto bene!");
+    }
+    else{
+        QMessageBox::information(NULL,"Coglione","Capra ignorante");
+    }
 }
 
 void Cervellone::show_question(question *curr_quest){

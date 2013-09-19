@@ -431,8 +431,8 @@
    <slot>start_video()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>614</x>
-     <y>568</y>
+     <x>577</x>
+     <y>560</y>
     </hint>
     <hint type="destinationlabel">
      <x>-1</x>
@@ -447,8 +447,8 @@
    <slot>stop_video()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>785</x>
-     <y>568</y>
+     <x>717</x>
+     <y>560</y>
     </hint>
     <hint type="destinationlabel">
      <x>1204</x>
@@ -488,6 +488,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>answer_button</sender>
+   <signal>clicked()</signal>
+   <receiver>Cervellone</receiver>
+   <slot>verify_answer()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>375</x>
+     <y>550</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-5</x>
+     <y>475</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>start_video()</slot>
@@ -495,5 +511,6 @@
   <slot>next_question()</slot>
   <slot>prev_question()</slot>
   <slot>show_answer()</slot>
+  <slot>verify_answer()</slot>
  </slots>
 </ui>
