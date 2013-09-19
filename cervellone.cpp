@@ -88,14 +88,20 @@ void Cervellone::prev_question(){
 }
 
 void Cervellone::verify_answer(){
-    QString answer = sender()->objectName();
-    QString correct = db->get_current_question()->get_correct();
-    if(answer.compare(correct) == 0){
-        QMessageBox::information(NULL,"Bravo","Bravo hai risposto bene!");
-    }
-    else{
-        QMessageBox::information(NULL,"Coglione","Capra ignorante");
-    }
+    if(db->get_current_question() != NULL){
+        QString answer = sender()->objectName();
+        QString correct = db->get_current_question()->get_correct();
+        if(answer.compare(correct) == 0){
+            QMessageBox::information(NULL,"Bravo","Bravo hai risposto bene!");
+        }
+        else{
+          Phonon::MediaObject *music =
+          Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource("beep_tagliato.mp3"));
+          music->play();
+          QMessageBox::information(NULL,"Coglione","Capra ignorante");
+
+        }
+   }
 }
 
 void Cervellone::show_question(question *curr_quest){
@@ -114,10 +120,10 @@ void Cervellone::show_question(question *curr_quest){
         qDebug()<<curr_quest->get_text();
 
     }
-    ui->A->setText(curr_quest->get_answers().at(0));
-    ui->B->setText(curr_quest->get_answers().at(1));
-    ui->C->setText(curr_quest->get_answers().at(2));
-    ui->D->setText(curr_quest->get_answers().at(3));
+    ui->A->setText("A - "+curr_quest->get_answers().at(0));
+    ui->B->setText("B - "+curr_quest->get_answers().at(1));
+    ui->C->setText("C - "+curr_quest->get_answers().at(2));
+    ui->D->setText("D - "+curr_quest->get_answers().at(3));
 }
 
 void Cervellone::show_answer(){
