@@ -31,11 +31,12 @@ private:
     void show_question(question *curr_quest);
     void setup_controllers();
     void setup_database();
-    void load_video();
-    void load_question();
+    void load_question_video();
+    void load_question_image();
     Ui::Cervellone *ui;
     QUrl video_path;
-    QString *video_name;
+    QString video_name;
+    QString image_name;
     database_controller* db;
 };
 

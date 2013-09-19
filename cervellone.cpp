@@ -17,7 +17,7 @@ Cervellone::Cervellone(QWidget *parent) :
     ui->videoPlayer->play(url);
 
 */
-    video_name = new QString("/home/andrea/Scaricati/prova.mp4");
+
    // load_video();
   //  start_video();
 }
@@ -41,27 +41,14 @@ void Cervellone::setup_controllers(){
     ui->label_text->setVisible(false);
     ui->label_video->setVisible(false);
     ui->label_image->setVisible(false);
+    ui->A->setStyleSheet("");
+    ui->B->setStyleSheet("");
+    ui->C->setStyleSheet("");
+    ui->D->setStyleSheet("");
 
 }
 
-void Cervellone::load_video(){
 
-    //enable control buttons
-    ui->stop_button->setEnabled(true);
-    ui->play_button->setEnabled(true);
-    ui->restart_button->setEnabled(true);
-    ui->seekSlider->setEnabled(true);
-
-    //load video
-    video_path.setUrl(*video_name);
-    ui->videoPlayer->show();
-    ui->videoPlayer->load(video_path);
-    //load slider control
-    Phonon::MediaObject *file = ui->videoPlayer->mediaObject();
-    ui->seekSlider->setMediaObject(file);
-    ui->seekSlider->show();
-
-}
 void Cervellone::next_question(){
     question *curr_quest = db->next_question();
     if(curr_quest==NULL){
@@ -89,13 +76,21 @@ void Cervellone::prev_question(){
 }
 
 void Cervellone::verify_answer(){
+    QPushButton *clicked;
     if(db->get_current_question() != NULL){
+        clicked = qobject_cast<QPushButton *>(sender());
+        clicked->setStyleSheet("background-color: yellow");
         QString answer = sender()->objectName();
         QString correct = db->get_current_question()->get_correct();
         if(answer.compare(correct) == 0){
+            clicked->setStyleSheet("background-color: green");
+            Phonon::MediaObject *music =
+            Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource("beep_tagliato.mp3"));
+            music->play();
             QMessageBox::information(NULL,"Bravo","Bravo hai risposto bene!");
         }
         else{
+          clicked->setStyleSheet("background-color: red");
           Phonon::MediaObject *music =
           Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource("beep_tagliato.mp3"));
           music->play();
@@ -106,12 +101,15 @@ void Cervellone::verify_answer(){
 }
 
 void Cervellone::show_question(question *curr_quest){
-    if (curr_quest->get_type()=="t"){
+
+    setup_controllers();
+
+    QString question_type = curr_quest->get_type();
+    if (question_type=="t"){
         qDebug()<<curr_quest->get_text();
         ui->label_text->setText(QString("<p style=\" font-family: SansSerif; font-size: 0pt;margin-left: 20px; \">%1</p>").arg(curr_quest->get_text()));
         ui->label_text->setVisible(true);
         ui->label_video->setVisible(false);
-
     }
     else{
         ui->label_video->setText(curr_quest->get_text());
@@ -125,6 +123,43 @@ void Cervellone::show_question(question *curr_quest){
     ui->B->setText("B - "+curr_quest->get_answers().at(1));
     ui->C->setText("C - "+curr_quest->get_answers().at(2));
     ui->D->setText("D - "+curr_quest->get_answers().at(3));
+
+    if (question_type=="i"){
+        image_name = curr_quest->get_file();
+        load_question_image();
+    }else if(question_type=="v"){
+        video_name = curr_quest->get_file();
+        load_question_video();
+    }
+
+}
+
+void Cervellone::load_question_video(){
+
+    //enable control buttons
+    ui->stop_button->setEnabled(true);
+    ui->play_button->setEnabled(true);
+    ui->restart_button->setEnabled(true);
+    ui->seekSlider->setEnabled(true);
+
+    //load video
+    video_path.setUrl(video_name);
+    ui->videoPlayer->show();
+    ui->videoPlayer->load(video_path);
+
+    //load slider control
+    Phonon::MediaObject *file = ui->videoPlayer->mediaObject();
+    ui->seekSlider->setMediaObject(file);
+    ui->seekSlider->show();
+
+}
+
+
+void Cervellone::load_question_image(){
+    QPixmap image(image_name);
+    ui->label_image->setPixmap(image);
+    ui->label_image->setVisible(true);
+
 }
 
 void Cervellone::show_answer(){

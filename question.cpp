@@ -8,6 +8,14 @@ question::question(QString text, QString correct, QString type, QVector<QString>
     this->answers = answers;
 }
 
+question::question(QString text, QString correct, QString type, QVector<QString> answers, QString file){
+    this->text = text;
+    this->correct_answer = correct;
+    this->type = type;
+    this->answers = answers;
+    this->name_file = file;
+}
+
 
 QString question::get_type(){
     return type;
@@ -23,4 +31,8 @@ QString question::get_text(){
 
 QString question::get_correct(){
     return correct_answer;
+}
+
+QString question::get_file(){
+    return name_file;
 }

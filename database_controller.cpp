@@ -18,7 +18,7 @@ bool database_controller::openDB(){
 }
 
 void database_controller::load_db(){
-
+    question *tmp;
     QSqlQuery query(db);
     qDebug()<<query.exec("select * from cervellone");
     while(query.next()){
@@ -30,8 +30,13 @@ void database_controller::load_db(){
         QString text = query.value(query.record().indexOf("Domanda")).toString();
         QString correct = query.value(query.record().indexOf("Corretta")).toString();
         QString type = query.value(query.record().indexOf("Tipo")).toString();
-
-        question *tmp = new question(text,correct,type,answer);
+        if ( type.compare("v") == 0 || type.compare("i") == 0){
+            QString file = query.value(query.record().indexOf("File")).toString();
+            tmp = new question(text,correct,type,answer,file);
+        }
+        else{
+            tmp = new question(text,correct,type,answer);
+        }
         questions.append(tmp);
         qDebug()<<query.value(query.record().indexOf("Domanda")).toString();
         qDebug()<<query.value(query.record().indexOf("Corretta")).toString();
