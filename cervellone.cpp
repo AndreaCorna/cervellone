@@ -88,7 +88,7 @@ void Cervellone::prev_question(){
 }
 
 void Cervellone::verify_answer(){
-    QString answer = ui->comboBox->currentText();
+    QString answer = sender()->objectName();
     QString correct = db->get_current_question()->get_correct();
     if(answer.compare(correct) == 0){
         QMessageBox::information(NULL,"Bravo","Bravo hai risposto bene!");
@@ -114,10 +114,10 @@ void Cervellone::show_question(question *curr_quest){
         qDebug()<<curr_quest->get_text();
 
     }
-    ui->answer1_label->setText(curr_quest->get_answers().at(0));
-    ui->answer2_label->setText(curr_quest->get_answers().at(1));
-    ui->answer3_label->setText(curr_quest->get_answers().at(2));
-    ui->answer4_label->setText(curr_quest->get_answers().at(3));
+    ui->A->setText(curr_quest->get_answers().at(0));
+    ui->B->setText(curr_quest->get_answers().at(1));
+    ui->C->setText(curr_quest->get_answers().at(2));
+    ui->D->setText(curr_quest->get_answers().at(3));
 }
 
 void Cervellone::show_answer(){

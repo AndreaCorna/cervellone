@@ -49,7 +49,7 @@
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QLabel" name="answer1_label">
+          <widget class="QPushButton" name="A">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -80,7 +80,7 @@
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QLabel" name="answer2_label">
+          <widget class="QPushButton" name="B">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -131,7 +131,7 @@
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QLabel" name="answer3_label">
+          <widget class="QPushButton" name="C">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -162,7 +162,7 @@
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QLabel" name="answer4_label">
+          <widget class="QPushButton" name="D">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -223,9 +223,9 @@
      <widget class="QFrame" name="frame_5">
       <property name="geometry">
        <rect>
-        <x>9</x>
+        <x>10</x>
         <y>10</y>
-        <width>421</width>
+        <width>191</width>
         <height>41</height>
        </rect>
       </property>
@@ -240,7 +240,7 @@
         <rect>
          <x>10</x>
          <y>10</y>
-         <width>401</width>
+         <width>171</width>
          <height>22</height>
         </rect>
        </property>
@@ -257,41 +257,14 @@
          <string>Next</string>
         </property>
        </widget>
-       <widget class="QComboBox" name="comboBox">
-        <item>
-         <property name="text">
-          <string>A</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>B</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>C</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>D</string>
-         </property>
-        </item>
-       </widget>
-       <widget class="QPushButton" name="answer_button">
-        <property name="text">
-         <string>Answer</string>
-        </property>
-       </widget>
       </widget>
      </widget>
      <widget class="QFrame" name="frame_7">
       <property name="geometry">
        <rect>
-        <x>429</x>
+        <x>199</x>
         <y>10</y>
-        <width>741</width>
+        <width>971</width>
         <height>41</height>
        </rect>
       </property>
@@ -301,12 +274,22 @@
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QSplitter" name="splitter_3">
+      <widget class="Phonon::SeekSlider" name="seekSlider">
+       <property name="geometry">
+        <rect>
+         <x>206</x>
+         <y>10</y>
+         <width>761</width>
+         <height>23</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QSplitter" name="splitter_2">
        <property name="geometry">
         <rect>
          <x>10</x>
          <y>10</y>
-         <width>721</width>
+         <width>191</width>
          <height>24</height>
         </rect>
        </property>
@@ -328,7 +311,6 @@
          <string>Restart</string>
         </property>
        </widget>
-       <widget class="Phonon::SeekSlider" name="seekSlider"/>
       </widget>
      </widget>
     </widget>
@@ -446,7 +428,7 @@
    <slot>start_video()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>577</x>
+     <x>272</x>
      <y>560</y>
     </hint>
     <hint type="destinationlabel">
@@ -462,7 +444,7 @@
    <slot>stop_video()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>717</x>
+     <x>332</x>
      <y>560</y>
     </hint>
     <hint type="destinationlabel">
@@ -504,18 +486,66 @@
    </hints>
   </connection>
   <connection>
-   <sender>answer_button</sender>
+   <sender>A</sender>
    <signal>clicked()</signal>
    <receiver>Cervellone</receiver>
    <slot>verify_answer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>375</x>
-     <y>550</y>
+     <x>483</x>
+     <y>643</y>
     </hint>
     <hint type="destinationlabel">
-     <x>-5</x>
-     <y>475</y>
+     <x>1203</x>
+     <y>427</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>C</sender>
+   <signal>clicked()</signal>
+   <receiver>Cervellone</receiver>
+   <slot>verify_answer()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>783</x>
+     <y>624</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1201</x>
+     <y>474</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>B</sender>
+   <signal>clicked()</signal>
+   <receiver>Cervellone</receiver>
+   <slot>verify_answer()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>481</x>
+     <y>714</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1208</x>
+     <y>499</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>D</sender>
+   <signal>clicked()</signal>
+   <receiver>Cervellone</receiver>
+   <slot>verify_answer()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>963</x>
+     <y>729</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1206</x>
+     <y>656</y>
     </hint>
    </hints>
   </connection>
