@@ -40,6 +40,7 @@ void Cervellone::setup_controllers(){
     ui->videoPlayer->setVisible(false);
     ui->label_text->setVisible(false);
     ui->label_video->setVisible(false);
+    ui->label_image->setVisible(false);
 
 }
 

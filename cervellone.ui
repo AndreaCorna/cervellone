@@ -804,9 +804,23 @@
        <bool>true</bool>
       </property>
      </widget>
+     <widget class="QLabel" name="label_image">
+      <property name="geometry">
+       <rect>
+        <x>372</x>
+        <y>114</y>
+        <width>521</width>
+        <height>331</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
      <zorder>label_text</zorder>
      <zorder>videoPlayer</zorder>
      <zorder>label_video</zorder>
+     <zorder>label_image</zorder>
     </widget>
    </widget>
   </widget>
