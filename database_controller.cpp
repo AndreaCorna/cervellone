@@ -13,7 +13,7 @@ database_controller::database_controller()
 
 bool database_controller::openDB(){
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("prova_cervellone.sqlite3");
+    db.setDatabaseName("cervellone.sqlite3");
     return db.open();
 }
 
