@@ -38,13 +38,18 @@ void database_controller::load_db(){
             tmp = new question(text,correct,type,answer);
         }
         questions.append(tmp);
-        qDebug()<<query.value(query.record().indexOf("Domanda")).toString();
-        qDebug()<<query.value(query.record().indexOf("Corretta")).toString();
-        qDebug()<<query.value(query.record().indexOf("A")).toString();
-        qDebug()<<query.value(query.record().indexOf("B")).toString();
-        qDebug()<<query.value(query.record().indexOf("C")).toString();
-        qDebug()<<query.value(query.record().indexOf("D")).toString();
-        qDebug()<<query.value(query.record().indexOf("Tipo")).toString();
+    }
+    shuffle();
+}
+
+void database_controller::shuffle(){
+    qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
+    for(int i=0; i<questions.size();i++){
+        question *tmp;
+        int random = qrand() % questions.size();
+        tmp = questions[i];
+        questions[i] = questions[random];
+        questions[random] = tmp;
     }
 }
 

@@ -6,6 +6,7 @@
 #include <QString>
 #include "database_controller.h"
 #include <Phonon/MediaObject>
+#include <hello_window.h>
 
 namespace Ui {
 class Cervellone;

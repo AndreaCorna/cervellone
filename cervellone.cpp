@@ -10,16 +10,10 @@ Cervellone::Cervellone(QWidget *parent) :
     ui->setupUi(this);
     setup_database();
     setup_controllers();
-   /* QUrl url;
-    url.setUrl("/home/andrea/prova.mp3");
-    ui->videoPlayer->show();
-
-    ui->videoPlayer->play(url);
-
-*/
-
-   // load_video();
-  //  start_video();
+    hello_window hello;
+    hello.setModal(true);
+    hello.exec();
+    next_question();
 }
 
 Cervellone::~Cervellone()
@@ -58,6 +52,9 @@ void Cervellone::next_question(){
     }
     else
     {
+        if(ui->videoPlayer->isPlaying()){
+            ui->videoPlayer->stop();
+        }
         show_question(curr_quest);
 
     }
@@ -77,34 +74,31 @@ void Cervellone::prev_question(){
 
 void Cervellone::verify_answer(){
     QPushButton *clicked;
+    Phonon::MediaObject *attesa;
     if(db->get_current_question() != NULL){
         clicked = qobject_cast<QPushButton *>(sender());
         QString answer = sender()->objectName();
         QString correct = db->get_current_question()->get_correct();
-
+        attesa =
+        Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource("attesa_prova.mp3"));
+        attesa->play();
+        clicked->setStyleSheet("background-color: yellow");
+        clicked->setUpdatesEnabled(true);
+        update();
+        qApp->processEvents();
+        sleep(11);
         if(answer.compare(correct) == 0){
-
-            Phonon::MediaObject *music =
-            Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource("attesa_prova.mp3"));
-            music->play();
-            clicked->setStyleSheet("background-color: yellow");
-
-            qDebug()<<"prima di sleep";
-
-            qDebug()<<"dopo di sleep";
             clicked->setStyleSheet("background-color: green");
-
+            Phonon::MediaObject *music =
+            Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource("errore_prova.mp3"));
             music->play();
-
-            QMessageBox::information(NULL,"Bravo","Bravo hai risposto bene!");
         }
         else{
+          attesa->stop();
           clicked->setStyleSheet("background-color: red");
           Phonon::MediaObject *music =
-          Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource("beep_tagliato.mp3"));
+          Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource("errore_prova.mp3"));
           music->play();
-          QMessageBox::information(NULL,"Coglione","Capra ignorante");
-
         }
    }
 }
@@ -116,7 +110,7 @@ void Cervellone::show_question(question *curr_quest){
     QString question_type = curr_quest->get_type();
     if (question_type=="t"){
         qDebug()<<curr_quest->get_text();
-        ui->label_text->setText(QString("<p style=\" font-family: SansSerif; font-size: 0pt;margin-left: 20px; \">%1</p>").arg(curr_quest->get_text()));
+        ui->label_text->setText(curr_quest->get_text());
         ui->label_text->setVisible(true);
         ui->label_video->setVisible(false);
     }

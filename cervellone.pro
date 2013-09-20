@@ -15,10 +15,13 @@ TEMPLATE = app
 SOURCES += main.cpp\
         cervellone.cpp \
     database_controller.cpp \
-    question.cpp
+    question.cpp \
+    hello_window.cpp
 
 HEADERS  += cervellone.h \
     database_controller.h \
-    question.h
+    question.h \
+    hello_window.h
 
-FORMS    += cervellone.ui
+FORMS    += cervellone.ui \
+    hello_window.ui

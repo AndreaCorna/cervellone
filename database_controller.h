@@ -19,6 +19,7 @@ public:
 private:
     bool openDB();
     void load_db();
+    void shuffle();
     
     int curr_question;
     QSqlDatabase db;
