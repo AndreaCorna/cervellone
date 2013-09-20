@@ -82,6 +82,9 @@ void Cervellone::verify_answer(){
         clicked->setStyleSheet("background-color: yellow");
         QString answer = sender()->objectName();
         QString correct = db->get_current_question()->get_correct();
+        qDebug()<<"prima di sleep";
+        sleep(2);
+        qDebug()<<"dopo di sleep";
         if(answer.compare(correct) == 0){
             clicked->setStyleSheet("background-color: green");
             Phonon::MediaObject *music =
