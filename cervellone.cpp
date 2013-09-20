@@ -79,17 +79,23 @@ void Cervellone::verify_answer(){
     QPushButton *clicked;
     if(db->get_current_question() != NULL){
         clicked = qobject_cast<QPushButton *>(sender());
-        clicked->setStyleSheet("background-color: yellow");
         QString answer = sender()->objectName();
         QString correct = db->get_current_question()->get_correct();
-        qDebug()<<"prima di sleep";
-        sleep(2);
-        qDebug()<<"dopo di sleep";
+
         if(answer.compare(correct) == 0){
-            clicked->setStyleSheet("background-color: green");
+
             Phonon::MediaObject *music =
-            Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource("beep_tagliato.mp3"));
+            Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource("attesa_prova.mp3"));
             music->play();
+            clicked->setStyleSheet("background-color: yellow");
+
+            qDebug()<<"prima di sleep";
+
+            qDebug()<<"dopo di sleep";
+            clicked->setStyleSheet("background-color: green");
+
+            music->play();
+
             QMessageBox::information(NULL,"Bravo","Bravo hai risposto bene!");
         }
         else{
