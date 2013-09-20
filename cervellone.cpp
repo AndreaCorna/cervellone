@@ -80,7 +80,7 @@ void Cervellone::verify_answer(){
         QString answer = sender()->objectName();
         QString correct = db->get_current_question()->get_correct();
         attesa =
-        Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource("attesa_prova.mp3"));
+        Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource("music/attesa_prova.mp3"));
         attesa->play();
         clicked->setStyleSheet("background-color: yellow");
         clicked->setUpdatesEnabled(true);
@@ -90,14 +90,14 @@ void Cervellone::verify_answer(){
         if(answer.compare(correct) == 0){
             clicked->setStyleSheet("background-color: green");
             Phonon::MediaObject *music =
-            Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource("errore_prova.mp3"));
+            Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource("music/errore_prova.mp3"));
             music->play();
         }
         else{
           attesa->stop();
           clicked->setStyleSheet("background-color: red");
           Phonon::MediaObject *music =
-          Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource("errore_prova.mp3"));
+          Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource("music/errore_prova.mp3"));
           music->play();
         }
    }
