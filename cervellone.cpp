@@ -90,14 +90,14 @@ void Cervellone::verify_answer(){
         if(answer.compare(correct) == 0){
             clicked->setStyleSheet("background-color: green");
             Phonon::MediaObject *music =
-            Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource("music/errore_prova.mp3"));
+            Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource("music/corretta_finale.mp3"));
             music->play();
         }
         else{
           attesa->stop();
           clicked->setStyleSheet("background-color: red");
           Phonon::MediaObject *music =
-          Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource("music/errore_prova.mp3"));
+          Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource("music/errore_finale.mp3"));
           music->play();
         }
    }
