@@ -59,6 +59,7 @@ void Cervellone::next_question(){
 
     }
 }
+
 void Cervellone::prev_question(){
     question *curr_quest = db->prev_question();
     if(curr_quest==NULL){
