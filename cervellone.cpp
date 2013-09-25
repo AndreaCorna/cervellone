@@ -133,6 +133,7 @@ void Cervellone::show_question(question *curr_quest){
         load_question_image();
     }else if(question_type=="v"){
         video_name = curr_quest->get_file();
+        qDebug()<<video_name;
         load_question_video();
     }
 
@@ -140,6 +141,7 @@ void Cervellone::show_question(question *curr_quest){
 
 void Cervellone::load_question_video(){
 
+    qDebug()<<QDir::currentPath();
     //enable control buttons
     ui->stop_button->setEnabled(true);
     ui->play_button->setEnabled(true);
@@ -148,6 +150,7 @@ void Cervellone::load_question_video(){
 
     //load video
     video_path.setUrl(video_name);
+    qDebug()<<video_path;
     ui->videoPlayer->show();
     ui->videoPlayer->load(video_path);
 

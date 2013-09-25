@@ -31,7 +31,7 @@ void database_controller::load_db(){
         QString correct = query.value(query.record().indexOf("Corretta")).toString();
         QString type = query.value(query.record().indexOf("Tipo")).toString();
         if ( type.compare("v") == 0){
-            QString file = "video/"+query.value(query.record().indexOf("File")).toString();
+            QString file = QDir::currentPath()+"/video/"+query.value(query.record().indexOf("File")).toString();
             tmp = new question(text,correct,type,answer,file);
         }else if ( type.compare("i") == 0){
             QString file = "image/"+query.value(query.record().indexOf("File")).toString();
