@@ -2,6 +2,7 @@
 #define HELLO_WINDOW_H
 
 #include <QDialog>
+#include <QMessageBox>
 
 namespace Ui {
 class hello_window;
@@ -14,6 +15,10 @@ class hello_window : public QDialog
 public:
     explicit hello_window(QWidget *parent = 0);
     ~hello_window();
+
+public slots:
+    void info();
+    void rules();
 
 private:
     Ui::hello_window *ui;

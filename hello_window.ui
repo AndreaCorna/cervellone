@@ -28,6 +28,9 @@
    <property name="standardButtons">
     <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
    </property>
+   <property name="centerButtons">
+    <bool>false</bool>
+   </property>
   </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
@@ -72,6 +75,32 @@
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
+  <widget class="QPushButton" name="info_button">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>680</y>
+     <width>91</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Info</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="rules_button">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>680</y>
+     <width>91</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Regolamento</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections>
@@ -107,5 +136,41 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>info_button</sender>
+   <signal>clicked()</signal>
+   <receiver>hello_window</receiver>
+   <slot>info()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>40</x>
+     <y>694</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>0</x>
+     <y>629</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rules_button</sender>
+   <signal>clicked()</signal>
+   <receiver>hello_window</receiver>
+   <slot>rules()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>145</x>
+     <y>689</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-3</x>
+     <y>468</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
+ <slots>
+  <slot>info()</slot>
+  <slot>rules()</slot>
+ </slots>
 </ui>

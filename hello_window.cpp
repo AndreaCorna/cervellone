@@ -15,3 +15,11 @@ hello_window::~hello_window()
 {
     delete ui;
 }
+
+void hello_window::info(){
+    QMessageBox::information(NULL,"Cervellone","Created by docs Fontana & Corna");
+}
+
+void hello_window::rules(){
+    QMessageBox::information(NULL,"Regolamento","Created by docs Fontana & Corna");
+}
