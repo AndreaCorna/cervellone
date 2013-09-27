@@ -27,6 +27,7 @@ void Cervellone::setup_database(){
 }
 
 void Cervellone::setup_controllers(){
+    ui->question_frame->setStyleSheet("background-image: url(./image/back.png);background-repeat:repeat-x;");
     ui->stop_button->setEnabled(false);
     ui->play_button->setEnabled(false);
     ui->restart_button->setEnabled(false);
