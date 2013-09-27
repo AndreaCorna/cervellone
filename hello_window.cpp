@@ -21,5 +21,21 @@ void hello_window::info(){
 }
 
 void hello_window::rules(){
-    QMessageBox::information(NULL,"Regolamento","Created by docs Fontana & Corna");
+    QString rules;
+    QFile rule_file("./rules.txt");
+    if (rule_file.open(QIODevice::ReadOnly))
+    {
+        QTextStream data_stream(&rule_file);
+        while ( !data_stream.atEnd() )
+        {
+            QString line = data_stream.readLine();
+            rules.append("\n"+line);
+        }
+        QMessageBox::information(NULL,"Regolamento",rules);
+    }else{
+         QMessageBox::information(0, "error", rule_file.errorString());
+    }
+
+    rule_file.close();
+
 }

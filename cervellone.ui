@@ -264,7 +264,7 @@
        <rect>
         <x>199</x>
         <y>10</y>
-        <width>971</width>
+        <width>821</width>
         <height>41</height>
        </rect>
       </property>
@@ -279,7 +279,7 @@
         <rect>
          <x>206</x>
          <y>10</y>
-         <width>761</width>
+         <width>611</width>
          <height>23</height>
         </rect>
        </property>
@@ -311,6 +311,43 @@
          <string>Restart</string>
         </property>
        </widget>
+      </widget>
+     </widget>
+     <widget class="QFrame" name="frame_6">
+      <property name="geometry">
+       <rect>
+        <x>1020</x>
+        <y>10</y>
+        <width>151</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="number_question_label">
+       <property name="geometry">
+        <rect>
+         <x>12</x>
+         <y>10</y>
+         <width>131</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>16</pointsize>
+         <weight>75</weight>
+         <italic>true</italic>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
       </widget>
      </widget>
     </widget>

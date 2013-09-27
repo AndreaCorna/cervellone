@@ -24,10 +24,11 @@ Cervellone::~Cervellone()
 
 void Cervellone::setup_database(){
     db = new database_controller();
+    number_question = 0;
 }
 
 void Cervellone::setup_controllers(){
-    ui->question_frame->setStyleSheet("background-image: url(./image/back.png);background-repeat:repeat-x;");
+
     ui->stop_button->setEnabled(false);
     ui->play_button->setEnabled(false);
     ui->restart_button->setEnabled(false);
@@ -40,11 +41,16 @@ void Cervellone::setup_controllers(){
     ui->B->setStyleSheet("");
     ui->C->setStyleSheet("");
     ui->D->setStyleSheet("");
+    ui->question_frame->setStyleSheet("background-image: url(./image/back.png);background-repeat:repeat-x;");
 
 }
 
 
 void Cervellone::next_question(){
+
+    number_question++;
+    QString number = QString::number(number_question);
+    ui->number_question_label->setText("Question "+number);
     question *curr_quest = db->next_question();
     if(curr_quest==NULL){
         QMessageBox msgBox;

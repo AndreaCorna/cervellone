@@ -3,6 +3,8 @@
 
 #include <QDialog>
 #include <QMessageBox>
+#include <QFile>
+#include <QTextStream>
 
 namespace Ui {
 class hello_window;

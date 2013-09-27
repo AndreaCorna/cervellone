@@ -39,6 +39,7 @@ private:
     QString video_name;
     QString image_name;
     database_controller* db;
+    int number_question;
 };
 
 #endif // CERVELLONE_H
