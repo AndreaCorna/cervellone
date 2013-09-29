@@ -31,8 +31,12 @@ void hello_window::rules(){
             QString line = data_stream.readLine();
             rules.append("\n"+line);
         }
-        QMessageBox::information(NULL,"Regolamento",rules);
-    }else{
+        QFont font("Times",16);
+        QMessageBox box_rules;
+        box_rules.setText(rules);
+        box_rules.setFont(font);
+        box_rules.exec();
+        }else{
          QMessageBox::information(0, "error", rule_file.errorString());
     }
 
