@@ -94,8 +94,9 @@ void Cervellone::verify_answer(){
         clicked->setUpdatesEnabled(true);
         update();
         qApp->processEvents();
-        sleep(11);
+        sleep(5);
         if(answer.compare(correct) == 0){
+            attesa->stop();
             clicked->setStyleSheet("background-color: green");
             Phonon::MediaObject *music =
             Phonon::createPlayer(Phonon::MusicCategory,Phonon::MediaSource("music/corretta_finale.mp3"));
