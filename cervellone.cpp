@@ -41,7 +41,7 @@ void Cervellone::setup_controllers(){
     ui->B->setStyleSheet("");
     ui->C->setStyleSheet("");
     ui->D->setStyleSheet("");
-    ui->question_frame->setStyleSheet("background-image: url(./image/back.png);background-repeat:repeat-x;");
+    //ui->question_frame->setStyleSheet("background-image: url(./image/back.png);background-repeat:repeat-x;");
 
 }
 
